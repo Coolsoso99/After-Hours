@@ -19,8 +19,8 @@ jobs:
           gradle-version: '8.13'
       - name: Fetch pinned remaster source
         run: |
-          curl --fail --location --retry 3 'https://github.com/Coolsoso99/After-Hours/releases/download/remaster-android-test-1/After_Hours_Remaster_Audio_FPS_Source.zip' -o source.zip
-          echo '5f56cb1670e158fe7d4273cc505b7dbef03183ea9e61607763ff316987d8144c  source.zip' | sha256sum -c -
+          curl --fail --location --retry 3 'https://github.com/Coolsoso99/After-Hours/releases/download/remaster-android-test-1/After_Hours_Remaster_Audio_FPS_Source_Final.zip' -o source.zip
+          echo '7392774fecef89edebe0e63ec9fe168b5c6c0f625712825eaf388fa51da936c4  source.zip' | sha256sum -c -
           unzip -q source.zip -d android
       - name: Install Android SDK packages
         run: |
@@ -43,5 +43,5 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          zip -j Unsigned_Audio_Fix_Build.zip output/*
-          gh release upload remaster-android-test-1 Unsigned_Audio_Fix_Build.zip --repo "$GITHUB_REPOSITORY"
+          zip -j Unsigned_Audio_FPS_Final.zip output/*
+          gh release upload remaster-android-test-1 Unsigned_Audio_FPS_Final.zip --repo "$GITHUB_REPOSITORY"
