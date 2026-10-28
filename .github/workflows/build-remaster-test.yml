@@ -4,7 +4,7 @@ on:
     paths: ['.github/workflows/build-remaster-test.yml']
   workflow_dispatch:
 permissions:
-  contents: read
+  contents: write
 jobs:
   compile:
     runs-on: ubuntu-24.04
@@ -39,3 +39,9 @@ jobs:
           name: remaster-android-unsigned
           path: output/
           retention-days: 7
+      - name: Export unsigned build materials for private local signing
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          zip -j Unsigned_Build_Materials.zip output/*
+          gh release upload remaster-android-test-1 Unsigned_Build_Materials.zip --repo "$GITHUB_REPOSITORY"
