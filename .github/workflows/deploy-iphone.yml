@@ -1,11 +1,12 @@
 
-name: Deploy AFTER HOURS iPhone PWA
+name: Deploy AFTER HOURS iPhone PWA and Android Update Feed
 
 on:
   push:
     branches: [main]
     paths:
       - 'github/workflows/iphone-pwa.zip'
+      - 'updates/android.json'
       - '.github/workflows/deploy-iphone.yml'
   workflow_dispatch:
 
@@ -38,6 +39,12 @@ jobs:
           test -f site/service-worker.js
           test -f site/release.json
 
+      - name: Add Android update feed
+        run: |
+          python3 -m json.tool updates/android.json > /dev/null
+          mkdir -p site/updates
+          cp updates/android.json site/updates/android.json
+
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
 
@@ -49,4 +56,4 @@ jobs:
       - name: Deploy website
         id: deployment
         uses: actions/deploy-pages@v4
-
+        
