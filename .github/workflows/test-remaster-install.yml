@@ -14,6 +14,8 @@ jobs:
         run: |
           curl --fail --location --retry 3 'https://github.com/Coolsoso99/After-Hours/releases/download/remaster-android-test-1/After_Hours_Remaster_Android_Test_1.apk' -o remaster.apk
           echo '0dd4e3cb8e6d28caaaad8e9d7d6fe4f6cbc1a1bd55cc713582e2759e663ce248  remaster.apk' | sha256sum -c -
+      - name: Enable emulator hardware acceleration
+        run: sudo chmod a+rw /dev/kvm
       - name: Test Android 16 install and launch
         uses: reactivecircus/android-emulator-runner@v2
         with:
