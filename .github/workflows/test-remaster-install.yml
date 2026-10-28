@@ -1,0 +1,27 @@
+name: Test remaster APK installation
+on:
+  push:
+    paths: ['.github/workflows/test-remaster-install.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  install:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - name: Download published signed APK
+        run: |
+          curl --fail --location --retry 3 'https://github.com/Coolsoso99/After-Hours/releases/download/remaster-android-test-1/After_Hours_Remaster_Android_Test_1.apk' -o remaster.apk
+          echo '0dd4e3cb8e6d28caaaad8e9d7d6fe4f6cbc1a1bd55cc713582e2759e663ce248  remaster.apk' | sha256sum -c -
+      - name: Test Android 16 install and launch
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 36
+          target: google_apis
+          arch: x86_64
+          disable-animations: true
+          script: |
+            adb install remaster.apk
+            adb shell am start -W -n com.afterhours.hav14.remastertest/com.afterhours.hav14.MainActivity
+            adb logcat -d -s AndroidRuntime PackageManager
