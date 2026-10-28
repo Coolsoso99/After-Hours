@@ -19,8 +19,8 @@ jobs:
           gradle-version: '8.13'
       - name: Fetch pinned remaster source
         run: |
-          curl --fail --location --retry 3 'https://github.com/Coolsoso99/After-Hours/releases/download/remaster-android-test-1/After_Hours_Remaster_Workspaces_Source.zip' -o source.zip
-          echo '6d93b96ab3ebf504bcfe053192d3c61bcfac1855654dfe8064811e671f7033fc  source.zip' | sha256sum -c -
+          curl --fail --location --retry 3 'https://github.com/Coolsoso99/After-Hours/releases/download/remaster-android-test-1/After_Hours_Remaster_Gameplay_Source.zip' -o source.zip
+          echo '3a81c8ab7f1236e491b2802444638b18119689f6ca45a408c2caf21bbde05238  source.zip' | sha256sum -c -
           unzip -q source.zip -d android
       - name: Install Android SDK packages
         run: |
@@ -43,5 +43,5 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          zip -j Unsigned_Workspaces_Build.zip output/*
-          gh release upload remaster-android-test-1 Unsigned_Workspaces_Build.zip --repo "$GITHUB_REPOSITORY"
+          zip -j Unsigned_Gameplay_Build.zip output/*
+          gh release upload remaster-android-test-1 Unsigned_Gameplay_Build.zip --repo "$GITHUB_REPOSITORY"
