@@ -1,14 +1,14 @@
 {
-  "version": "12.7.25",
-  "build": "20261028-cases-coop-tech",
+  "version": "12.7.26",
+  "build": "20261028-teamplay-upgrades",
   "published": "2026-10-28",
   "channel": "beta",
   "application_id": "com.afterhours.hav14.remastertest",
   "signing_certificate_sha256": "43853ff0d8be40fbb72c98dc37a8a5b766ec5f5086ebcf0389c2fff60aacf06d",
   "notes": [
-    "Six unlockable case files and optional co-op snapshot cross-checks.",
-    "New Co-op Support tech line: Team Briefing, Cross-Link and Signal Relay. Host ranks apply team bonuses in co-op only.",
-    "PC resume fix and Frozen Feed removal retained. Multiplayer requires protocol 12.7.25."
+    "Case files, co-op cross-checks and five Co-op Support upgrades.",
+    "Added Double Confirmation and Signal Diagnosis. Duplicate team reports are neutral.",
+    "All multiplayer players need protocol 12.7.26."
   ],
-  "android_apk_url": "https://github.com/Coolsoso99/After-Hours/releases/download/remaster-android-test-1/After_Hours_Remaster_12_7_25_Cases_Coop_Tech.apk"
+  "android_apk_url": "https://github.com/Coolsoso99/After-Hours/releases/download/remaster-android-test-1/After_Hours_Remaster_12_7_26_Teamplay.apk"
 }
