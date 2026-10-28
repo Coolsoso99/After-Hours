@@ -1,1 +1,14 @@
 
+{
+  "version": "12.7.14",
+  "build": "20261028-android-update-1",
+  "published": "2026-10-28",
+  "channel": "beta",
+  "notes": [
+    "In-app update notifications",
+    "Pursuer and tech tree fixes",
+    "Multiplayer improvements"
+  ],
+  "android_apk_url": "https://github.com/Coolsoso99/After-Hours/releases/download/V12.7.14/After_Hours_V12_7_14_Android_Update_Checker_Beta.apk"
+}
+
