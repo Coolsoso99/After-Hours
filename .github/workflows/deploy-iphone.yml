@@ -1,1 +1,52 @@
 
+name: Deploy AFTER HOURS iPhone PWA
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'github/workflows/iphone-pwa.zip'
+      - '.github/workflows/deploy-iphone.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout game repository
+        uses: actions/checkout@v4
+
+      - name: Extract iPhone game
+        run: |
+          mkdir -p site
+          unzip -q github/workflows/iphone-pwa.zip -d site
+          test -f site/index.html
+          test -f site/manifest.webmanifest
+          test -f site/service-worker.js
+          test -f site/release.json
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload website
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./site
+
+      - name: Deploy website
+        id: deployment
+        uses: actions/deploy-pages@v4
+
