@@ -1,0 +1,41 @@
+name: Build separate remaster Android test
+on:
+  push:
+    paths: ['.github/workflows/build-remaster-test.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  compile:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.13'
+      - name: Fetch pinned remaster source
+        run: |
+          curl --fail --location --retry 3 'https://github.com/Coolsoso99/After-Hours/releases/download/remaster-android-test-1/After_Hours_Remaster_Test_Android_Source.zip' -o source.zip
+          echo '9222662489d86b1487a43f1e4b03bfdc7e001f997d3541c15ade1f2fd438445d  source.zip' | sha256sum -c -
+          unzip -q source.zip -d android
+      - name: Install Android SDK packages
+        run: |
+          sdkmanager 'platforms;android-36' 'build-tools;36.0.0'
+      - name: Compile unsigned separate app
+        run: gradle -p android :app:assembleRelease --stacktrace
+      - name: Prepare APK and verification tools
+        run: |
+          mkdir output
+          cp android/app/build/outputs/apk/release/app-release-unsigned.apk output/After_Hours_Remaster_Test_UNSIGNED.apk
+          cp "$ANDROID_HOME/build-tools/36.0.0/lib/apksigner.jar" output/apksigner.jar
+          "$ANDROID_HOME/build-tools/36.0.0/aapt" dump badging output/After_Hours_Remaster_Test_UNSIGNED.apk > output/package-info.txt
+          grep "package: name='com.afterhours.hav14.remastertest'" output/package-info.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: remaster-android-unsigned
+          path: output/
+          retention-days: 7
