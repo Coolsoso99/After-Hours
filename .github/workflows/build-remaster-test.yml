@@ -19,8 +19,8 @@ jobs:
           gradle-version: '8.13'
       - name: Fetch pinned remaster source
         run: |
-          curl --fail --location --retry 3 'https://github.com/Coolsoso99/After-Hours/releases/download/remaster-android-test-1/After_Hours_Remaster_Test_Android_Source.zip' -o source.zip
-          echo '9222662489d86b1487a43f1e4b03bfdc7e001f997d3541c15ade1f2fd438445d  source.zip' | sha256sum -c -
+          curl --fail --location --retry 3 'https://github.com/Coolsoso99/After-Hours/releases/download/remaster-android-test-1/After_Hours_Remaster_Test_Android_Source_2.zip' -o source.zip
+          echo 'fd9d340b51a0d74acbf8f04a266bbe31aefd982d753dc9238bd698930c2c9ca9  source.zip' | sha256sum -c -
           unzip -q source.zip -d android
       - name: Install Android SDK packages
         run: |
