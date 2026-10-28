@@ -1,12 +1,12 @@
 {
-  "version": "12.7.21",
-  "build": "20261028-workspaces-comparison-controls",
+  "version": "12.7.22",
+  "build": "20261028-pursuer-anchor-coop-tutorial",
   "published": "2026-10-28",
   "channel": "beta",
   "application_id": "com.afterhours.hav14.remastertest",
   "signing_certificate_sha256": "43853ff0d8be40fbb72c98dc37a8a5b766ec5f5086ebcf0389c2fff60aacf06d",
   "notes": [
-    "Full-screen tech tree, multiplayer and comparison gallery; configurable calibration keyboard controls."
+    "Pursuer flashlight/spawn fixes, Memory Anchor, clearer tech tree, staged calibration, fixed-camera tutorial, cooperative pressure/progression and approaching-danger alarms."
   ],
-  "android_apk_url": "https://github.com/Coolsoso99/After-Hours/releases/download/remaster-android-test-1/After_Hours_Remaster_12_7_21_Workspaces.apk"
+  "android_apk_url": "https://github.com/Coolsoso99/After-Hours/releases/download/remaster-android-test-1/After_Hours_Remaster_12_7_22_Gameplay_Final.apk"
 }
