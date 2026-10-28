@@ -19,8 +19,8 @@ jobs:
           gradle-version: '8.13'
       - name: Fetch pinned remaster source
         run: |
-          curl --fail --location --retry 3 'https://github.com/Coolsoso99/After-Hours/releases/download/remaster-android-test-1/After_Hours_Remaster_No_Frozen_Feed_Source.zip' -o source.zip
-          echo 'e82046d781a89797f9580dfef84891b9da547b7cc9be5bb44eaf6c1a6bd41971  source.zip' | sha256sum -c -
+          curl --fail --location --retry 3 'https://github.com/Coolsoso99/After-Hours/releases/download/remaster-android-test-1/After_Hours_Remaster_Case_Files_Source.zip' -o source.zip
+          echo '6593adb74a37c55d6ac3db1d62e92dfa9e828258ef8a2118cd7ecf8321804ba8  source.zip' | sha256sum -c -
           unzip -q source.zip -d android
       - name: Install Android SDK packages
         run: |
@@ -43,5 +43,5 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          zip -j Unsigned_No_Frozen_Feed_Build.zip output/*
-          gh release upload remaster-android-test-1 Unsigned_No_Frozen_Feed_Build.zip --repo "$GITHUB_REPOSITORY"
+          zip -j Unsigned_Case_Files_Build.zip output/*
+          gh release upload remaster-android-test-1 Unsigned_Case_Files_Build.zip --repo "$GITHUB_REPOSITORY"
