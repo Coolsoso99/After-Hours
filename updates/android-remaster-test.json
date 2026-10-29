@@ -1,15 +1,16 @@
 {
-  "version": "13.0.1",
-  "build": "20261029-mobile-menu-fit",
+  "version": "13.2.0",
+  "build": "20261029-camera-repair-xp",
   "published": "2026-10-29",
   "channel": "stable",
   "application_id": "com.afterhours.hav14.remastertest",
   "signing_certificate_sha256": "43853ff0d8be40fbb72c98dc37a8a5b766ec5f5086ebcf0389c2fff60aacf06d",
   "notes": [
-    "Android menu hotfix: title and button labels fit small screens and alternate device fonts.",
-    "Same 24 cameras and 229 photo anomalies. Compatible with 13.0.0 multiplayer.",
-    "iPhone Home Screen web app: https://after-hours-hav0k.humblecrane258.chatgpt.site/"
+    "Rare camera event: 1% per eligible shift, one extra camera, on either map.",
+    "Signal repair: 5 pending XP + 1 per full auto-fix second remaining; bank XP by surviving.",
+    "HTML/Android/iPhone/Electron co-op participants must all use 13.2.0.",
+    "iPhone Home Screen app updated: https://after-hours-hav0k.humblecrane258.chatgpt.site/"
   ],
-  "android_apk_url": "https://github.com/Coolsoso99/After-Hours/releases/download/v13.0.0/After_Hours_13.0.1_Android.apk",
-  "android_apk_sha256": "0cefeb0278587c7d28db0ba3669c09ad1e8ffbd1798adab93a9c34b50503359a"
+  "android_apk_url": "https://github.com/Coolsoso99/After-Hours/releases/download/v13.2.0/After_Hours_13.2.0_Android.apk",
+  "android_apk_sha256": "3a1bb6298518667befb49afaa5f8a56c4d40e7faccd6ecca8e13ebb7e272b85a"
 }
