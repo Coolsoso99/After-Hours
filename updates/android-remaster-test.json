@@ -1,14 +1,15 @@
 {
-  "version": "12.7.28",
-  "build": "20261028-signal-recovery",
-  "published": "2026-10-28",
-  "channel": "beta",
+  "version": "13.0.0",
+  "build": "20261029-curated-maps",
+  "published": "2026-10-29",
+  "channel": "stable",
   "application_id": "com.afterhours.hav14.remastertest",
   "signing_certificate_sha256": "43853ff0d8be40fbb72c98dc37a8a5b766ec5f5086ebcf0389c2fff60aacf06d",
   "notes": [
-    "Full-circle signal recovery: random starting angle, target and 35\u201380% first-stage peak. Tune the second control to 100%.",
-    "Traveling screens last 3x longer. Map 2 presets use 3/5/7/9 cameras.",
-    "All prior maps, lore, case files and co-op upgrades retained. All multiplayer players need 12.7.28."
+    "The Complex: 15 cameras. The Store Rooms: 9 cameras and 77 curated anomalies; 229 photo anomalies total.",
+    "New map names throughout play, Edit Rooms, multiplayer, previews and Traveling screens.",
+    "Existing progress retained. All multiplayer players must use 13.0.0."
   ],
-  "android_apk_url": "https://github.com/Coolsoso99/After-Hours/releases/download/remaster-android-test-1/After_Hours_Remaster_12_7_28_Signal_Recovery.apk"
+  "android_apk_url": "https://github.com/Coolsoso99/After-Hours/releases/download/v13.0.0/After_Hours_13.0.0_Android.apk",
+  "android_apk_sha256": "882e16dcdee4e492e5dae824494ffcab2f5f9a05556794afc53cc8b4a500e964"
 }
