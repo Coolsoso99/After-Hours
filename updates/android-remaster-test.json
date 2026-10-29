@@ -1,14 +1,14 @@
 {
-  "version": "12.7.26",
-  "build": "20261028-teamplay-upgrades",
+  "version": "12.7.27",
+  "build": "20261028-map2-night-shift",
   "published": "2026-10-28",
   "channel": "beta",
   "application_id": "com.afterhours.hav14.remastertest",
   "signing_certificate_sha256": "43853ff0d8be40fbb72c98dc37a8a5b766ec5f5086ebcf0389c2fff60aacf06d",
   "notes": [
-    "Case files, co-op cross-checks and five Co-op Support upgrades.",
-    "Added Double Confirmation and Signal Diagnosis. Duplicate team reports are neutral.",
-    "All multiplayer players need protocol 12.7.26."
+    "Map 2: nine cameras and 18 object, door and shadow anomalies with editable report hotspots.",
+    "Map switching in Edit Rooms and Play, hover previews, Traveling exterior screen and location lore.",
+    "Two new Map 2 case files. All multiplayer players need protocol 12.7.27."
   ],
-  "android_apk_url": "https://github.com/Coolsoso99/After-Hours/releases/download/remaster-android-test-1/After_Hours_Remaster_12_7_26_Teamplay.apk"
+  "android_apk_url": "https://github.com/Coolsoso99/After-Hours/releases/download/remaster-android-test-1/After_Hours_Remaster_12_7_27_Map2.apk"
 }
