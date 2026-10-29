@@ -1,14 +1,14 @@
 {
-  "version": "12.7.27",
-  "build": "20261028-map2-night-shift",
+  "version": "12.7.28",
+  "build": "20261028-signal-recovery",
   "published": "2026-10-28",
   "channel": "beta",
   "application_id": "com.afterhours.hav14.remastertest",
   "signing_certificate_sha256": "43853ff0d8be40fbb72c98dc37a8a5b766ec5f5086ebcf0389c2fff60aacf06d",
   "notes": [
-    "Map 2: nine cameras and 18 object, door and shadow anomalies with editable report hotspots.",
-    "Map switching in Edit Rooms and Play, hover previews, Traveling exterior screen and location lore.",
-    "Two new Map 2 case files. All multiplayer players need protocol 12.7.27."
+    "Full-circle signal recovery: random starting angle, target and 35\u201380% first-stage peak. Tune the second control to 100%.",
+    "Traveling screens last 3x longer. Map 2 presets use 3/5/7/9 cameras.",
+    "All prior maps, lore, case files and co-op upgrades retained. All multiplayer players need 12.7.28."
   ],
-  "android_apk_url": "https://github.com/Coolsoso99/After-Hours/releases/download/remaster-android-test-1/After_Hours_Remaster_12_7_27_Map2.apk"
+  "android_apk_url": "https://github.com/Coolsoso99/After-Hours/releases/download/remaster-android-test-1/After_Hours_Remaster_12_7_28_Signal_Recovery.apk"
 }
