@@ -33,19 +33,22 @@ jobs:
             git push origin refs/tags/v13.8.3
           fi
 
-      - name: Publish prepared release draft
+      - name: Verify public release or publish prepared draft
         run: |
-          release_id="$(gh api "repos/${GITHUB_REPOSITORY}/releases?per_page=100" --jq '.[] | select(.draft and ((.name // "") | contains("v13.8.3"))) | .id' | head -n 1)"
-          if [ -z "$release_id" ]; then
-            echo "No v13.8.3 draft found; refusing to create a release without the three uploaded downloads."
-            exit 1
+          if gh release view v13.8.3 >/dev/null 2>&1; then
+            echo "v13.8.3 is already public with its uploaded downloads."
+          else
+            release_id="$(gh api "repos/${GITHUB_REPOSITORY}/releases?per_page=100" --jq '.[] | select(.draft and ((.name // "") | contains("v13.8.3"))) | .id' | head -n 1)"
+            if [ -z "$release_id" ]; then
+              echo "The v13.8.3 draft is missing."
+              exit 1
+            fi
+            gh api -X PATCH "repos/${GITHUB_REPOSITORY}/releases/${release_id}" \
+              -f tag_name=v13.8.3 \
+              -f target_commitish=main \
+              -F draft=false \
+              -F prerelease=false
           fi
-          gh api -X PATCH "repos/${GITHUB_REPOSITORY}/releases/${release_id}" \
-            -f tag_name=v13.8.3 \
-            -f target_commitish=main \
-            -F draft=false \
-            -F prerelease=false \
-            --jq '{tag_name, draft, assets: [.assets[].name]}'
 
       - name: Extract iPhone PWA
         run: |
@@ -54,7 +57,7 @@ jobs:
           unzip -q release-download/After_Hours_13.8.3_iPhone_PWA.zip -d site
           test -f site/index.html
           test -f site/manifest.webmanifest
-          test -f site/service-worker.js
+          test -f site/sw.js
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
